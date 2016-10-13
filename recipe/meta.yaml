@@ -1,0 +1,32 @@
+{% set name = "csdms-infil-smith-parlange" %}
+{% set version = "3.4" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/csdms/topoflow-bridge
+
+requirements:
+  build:
+    - bmi-babel
+    - topoflow
+  run:
+    - bmi-babel
+    - topoflow
+
+test:
+  requires:
+    - pymt
+    - bmi-tester
+
+about:
+  home: http://csdms.colorado.edu/wiki/Model_help:TopoFlow-Infiltration-Smith-Parlange
+  license: Apache
+  summary: |
+    InfilSmithParlange is an infiltration process component included
+    within the spatially distributed hydrologic model TopoFlow. It uses
+    the Smith-Parlange method for modeling how water on the ground is
+    absorbed into the soil.
+
