@@ -1,4 +1,4 @@
-{% set name = "csdms-infil-smith-parlange" %}
+{% set name = "topoflow-infil-smith-parlange-csdms" %}
 {% set version = "3.4" %}
 
 package:
