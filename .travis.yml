@@ -23,7 +23,7 @@ install:
   else
     OS="Linux-x86_64"
   fi
-- curl $MINICONDA_URL_BASE-$OS.sh | bash miniconda.sh -b -p $CONDA_PREFIX
+- curl $MINICONDA_URL_BASE-$OS.sh | bash -b -p $CONDA_PREFIX
 - hash -r
 - conda config --set always_yes yes --set changeps1 no
 - conda install python=$TRAVIS_PYTHON_VERSION
