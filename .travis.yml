@@ -7,6 +7,7 @@ env:
   - CONDA_PREFIX=$HOME/miniconda
   - MINICONDA_URL_BASE="http://repo.continuum.io/miniconda/Miniconda-latest"
   - TRAVIS_PYTHON_VERSION="2.7"
+  - secure: EVNEME6bTMBzOJxP5ouSgg4IUc4KP95o6DSoZ2a8dPwzSxdybMhXzYSCJGr218fdJdkj5B9B5bqdi5+TSy637vjtfWY6AH1xDCbz91ZvYct6V9NCrF63jAOHD1U+cbGPhUbm035kqPT0jDQeXtRvqIJajGlE0N2RocgAdTMzEf6Yj7gHRpPE6TCO1mVz/A915oUD60M8KtCVdExNWmontlBJh3ouf1lrJ2zl4jsmQ2UqpepVWlbZd+cWjhYWdbuSXZ++9LNu3ogEqUwxfiaaMsOQd4o0GSiK2u9IT066ihY2BDANRaFUnX7DBpNa/b2dt/QY3/hZAlP1usSXMRC01fhYcyA+wweQNua7hUMfto3hnVlYnUgQNnipWtrdfQ4EBZBscYZlri5X2tavcdE5zjyPC7ejGAOv/ZWhYH2mEauDapWijYliE5fEHI53aYBSAfu7pMfk7XZV31pYQTShKUb8pQqUOVZnObsVwl6ymDPLYsXYFFsYsGhgMf6Qay8TqYTUcVwr7AiL9nwyTQ8D1R3P9TsNS2p/Cc5y87/18GOvA9PLPqcj/foI8LtOVB/NA7si+poNS0SV54M0nPWjnbWXtiuRSnt55rfmV+f0tuxxQr45E8U/lcyqIL79MMEKeb9MmywLWhIkcRF1ghlkLj7PpuRIgj23NXvmRjtzoZU=
 sudo: false
 before_install:
 - |
@@ -31,5 +32,6 @@ install:
 script:
 - conda build ./recipe -c csdms-stack -c conda-forge
 after_success:
-- curl https://raw.githubusercontent.com/csdms/ci-tools/master/anaconda_upload.py > $HOME/anaconda_upload.py
+- curl https://raw.githubusercontent.com/csdms/ci-tools/master/anaconda_upload.py
+  > $HOME/anaconda_upload.py
 - python $HOME/anaconda_upload.py ./recipe --channel=main --org=csdms-stack --token=$ANACONDA_TOKEN
