@@ -25,11 +25,11 @@ install:
   fi
 - curl $MINICONDA_URL_BASE-$OS.sh > $HOME/minconda.sh
 - bash $HOME/minconda.sh -b -p $CONDA_PREFIX
+- export PATH="$CONDA_PREFIX/bin:$PATH"
 - hash -r
 - conda config --set always_yes yes --set changeps1 no
 - conda install python=$TRAVIS_PYTHON_VERSION
 - conda install -q conda-build anaconda-client coverage sphinx
-- export PATH="$CONDA_PREFIX/bin:$PATH"
 script:
 - conda build ./recipe -c csdms-stack -c conda-forge
 after_success:
