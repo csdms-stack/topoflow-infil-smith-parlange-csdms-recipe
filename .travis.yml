@@ -34,4 +34,4 @@ script:
 after_success:
 - curl https://raw.githubusercontent.com/csdms/ci-tools/master/anaconda_upload.py
   > $HOME/anaconda_upload.py
-- python $HOME/anaconda_upload.py ./recipe --channel=main --org=csdms-stack --token=$ANACONDA_TOKEN
+- echo $ANACONDA_TOKEN | python $HOME/anaconda_upload.py ./recipe --channel=main --org=csdms-stack --token=-
